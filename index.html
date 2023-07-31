@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Database & To-Do Application</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="m-3">
+    <h1>Databases</h1>
+    <h1>What is a database?</h1>
+    <p>
+      A database is server for permanently storing data and work with that data
+      in a meaningful way.
+    </p>
+    <h2>Creating our own database</h2>
+    <p>There are multiple database systems:</p>
+
+    <ul>
+      <li>MongoDB</li>
+      <li>MySQL</li>
+      <li>SQL Server</li>
+      <li>Oracle</li>
+      <li>MariaDB</li>
+      <li>PostgreSQL</li>
+      <li>CouchDB</li>
+      <li>etc.</li>
+    </ul>
+    <p>
+      They all have different philosophy in how they handle data but at the end
+      of the day, all databases function to make it easy to work with data.
+    </p>
+    <p>
+      We are choosing MongoDB as it is beginner friendly and easy to use. We can
+      sign up for a free account
+      <a href="https://www.mongodb.com/" target="_blank">here</a>. We will begin
+      by building our first cluster.
+    </p>
+    <ul>
+      <li>We begin by choosing a cloud provider(AWS, Google, Azure)</li>
+      <li>Select our region (with free tier available)</li>
+      <li>Create cluster</li>
+      <li>Wait a while and your cluster would be created</li>
+    </ul>
+    <h2>CRUD Acronym & Our First Database</h2>
+    <p>We will begin by creating a test pet store database.</p>
+    <ol>
+      <li>Click on Create Database</li>
+      <li>Give it name of "TestDatabase.pets"</li>
+      <li>Create a collection name of "pets" for now</li>
+    </ol>
+    <h5>Ok now that we have an empty collection what can we do?</h5>
+    <p>There is an acronym we can use to remember how to work with databases</p>
+    <ul>
+      <b>
+        <li class="text-success">Create</li>
+        <li class="text-primary">Read</li>
+        <li class="text-warning">Update</li>
+        <li class="text-danger">Delete</li>
+      </b>
+    </ul>
+    <h4 class="text-success">Create</h4>
+    <p>
+      Create a document to represent a pet object by selecting the "INSERT
+      DOCUMENT" button.
+      <br />
+      You can add in the title of the field ("name") followed by the string
+      value "Meowalot"
+    </p>
+    <p class="bg-success text-light d-inline-block p-1">name: "Meowalot"</p>
+
+    <h4 class="text-primary">Read</h4>
+    <p>
+      Read can be replaced with retrieve from the database. The fact that we are
+      viewing the object on MongoDB is part of the read acronym.
+      <br />The filter feature is also another form of reading the database.
+    </p>
+    <p class="bg-primary text-light d-inline-block p-1">
+      {species: "cat"} in the search tab
+    </p>
+
+    <h4 class="text-warning">Update</h4>
+    <p>
+      Update simply means you can change or update an existing document object.
+      <br />The pencil icon next to each object document allows users to edit
+      any field like the "name" or "species" of the object.
+    </p>
+    <p class="bg-warning text-dark d-inline-block p-1">
+      Change the "Horsalot" object name to "Neighalot" and click
+      <button class="small rounded">Update</button>.
+    </p>
+
+    <h4 class="text-danger">Read</h4>
+    <p>
+      Delete means removing items from the database.
+      <br />The trash can icon allows users to delete documents from the
+      database.
+    </p>
+    <p class="bg-danger text-light d-inline-block p-1">
+      Select the trash can icon and a warning of "Document flagged for deletion"
+      will appear. Click <button class="small rounded">Delete</button> to
+      confirm.
+    </p>
+    <h3>Working with a database seems easy here</h3>
+    <p>
+      It might seem easy to work within the MongoDB database. However, the
+      difficult/challenge comes when we need to perform remote execution of our
+      database functions from our Node.JS environment.
+      <br />Back to the sandwich analogy, being a developer is about
+      communicating with the database through your code.
+    </p>
+    <p>
+      Which is why we will be creating a <b>To-Do Application</b> to practice speaking
+      with a database envrionment.
+    </p>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
