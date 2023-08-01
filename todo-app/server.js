@@ -2,6 +2,7 @@ let express = require("express");
 // Running npm init -y will create a package.json file which will keep track of all imported files.
 // When we installed express, it was added to package.json
 let app = express();
+let db
 
 // Tell express to add all form elements to a body object
 app.use(express.urlencoded({ extended: false }));
@@ -61,8 +62,9 @@ app.get("/", function (req, res) {
         </html>`);
 });
 
-app.post("/create-item", function (req, res) {
-  console.log(req.body.item); //Looking for the item input field
+app.post("/create-item", async function (req, res) {
+  await db.collection('items').insertOne({text: req.body.item}) //Adding your form input into the Mongodb collections items
+  //The response will not send until the create action above has finished
   res.send("Thanks for submitting the form!");
 });
 
