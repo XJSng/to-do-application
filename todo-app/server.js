@@ -78,4 +78,6 @@ However, nodemon is installed locally and does not working globally.
 To overcome that we can leverage our package.json file to create custom commands under scripts.
 We will create a "watch" script which will run nodemon server continuously.
 This means that even though nodemon is not available globally, it is smart enough to look to nodemon in the node_modules folder
+
+Also, there will be 'async/await' syntax in this app, we will delve deeper into what it is and how it works in our complex app.
 */
