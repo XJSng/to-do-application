@@ -1,8 +1,26 @@
 let express = require("express");
 // Running npm init -y will create a package.json file which will keep track of all imported files.
 // When we installed express, it was added to package.json
+
+// Let our app know the mongodb var look insert the mongodb package
+// Destructing our code below allows us to reference multiple objects from 'mongodb', so that we can reference them in our code
+let { MongoClient } = require("mongodb");
+
 let app = express();
-let db
+let db;
+
+// Create a var called client to leverage a new MongoClient
+async function go() {
+  let client = new MongoClient(
+    "mongodb+srv://XJSng:wRfqEXl8nsXnddgO@cluster0.yfzmesm.mongodb.net/ToDoApp?retryWrites=true&w=majority"
+  );
+  await client.connect();
+  db = client.db();
+  app.listen(3000);
+}
+
+//Run the application after connection to the database is secured
+go();
 
 // Tell express to add all form elements to a body object
 app.use(express.urlencoded({ extended: false }));
@@ -63,12 +81,11 @@ app.get("/", function (req, res) {
 });
 
 app.post("/create-item", async function (req, res) {
-  await db.collection('items').insertOne({text: req.body.item}) //Adding your form input into the Mongodb collections items
+  await db.collection("items").insertOne({text: req.body.item}); 
+  //Adding your form input into the Mongodb collections items
   //The response will not send until the create action above has finished
   res.send("Thanks for submitting the form!");
 });
-
-app.listen(3000);
 
 /*
 Productivity Tip - Continuity running of Node
@@ -82,4 +99,5 @@ We will create a "watch" script which will run nodemon server continuously.
 This means that even though nodemon is not available globally, it is smart enough to look to nodemon in the node_modules folder
 
 Also, there will be 'async/await' syntax in this app, we will delve deeper into what it is and how it works in our complex app.
+Be sure to double/triple check the connection steps.
 */
